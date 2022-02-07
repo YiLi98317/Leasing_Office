@@ -1,0 +1,29 @@
+<p id="alert"><%= alert %></p>
+<h1>Login</h1>
+<%= form_tag session_index_path do |form| %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+
+<!--  <div class="field">-->
+    <%#= label_tag :type %>
+    <%#= password_field_tag :type %>
+<!--  </div>-->
+  
+  <label for="type">Choose login type: </label>
+  <select name="type" id= :type>
+    <option value="agent">agent</option>
+    <option value="applicant">applicant</option>
+    <option value="admin">admin</option>
+  </select>
+
+  <div class="actions">
+    <%= submit_tag "Login" %>
+  </div>
+<% end %>

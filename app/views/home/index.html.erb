@@ -1,0 +1,70 @@
+<p id=”notice”><%= notice %></p>
+
+<h1>Leasing Agency System</h1>
+<p>Author: Yi, Huangxing, Henry</p>
+
+<% if current_agent %>
+  Logged in as <%= current_agent.name %>.
+  <%= link_to 'Profile', current_agent %><br>
+  <%= link_to 'Add a property', new_property_path %><br>
+  <%= link_to 'Remove a property', properties_path %><br>
+  <%= link_to 'View the list of properties and availabilities', properties_path %><br>
+  <%= link_to 'Check a tenant in to a property', applicants_path %><br>
+  <%= link_to 'Reject a tenant’s application to a property', applications_path %><br>
+  <%= link_to 'Check a tenant out from a property', applicants_path %><br>
+
+<!--  <%#= link_to 'View the waitlist ø', properties_path %><br>-->
+<!--  <%#= link_to 'Remove an applicant from the waitlist ø', properties_path %><br>-->
+<!--  <%#= link_to 'Check a tenant in from the waitlist to a property ø', properties_path %><br>-->
+  <%= link_to "Logout", logout_path %>
+
+<% elsif current_applicant %>
+  Logged in as <%= current_applicant.name %>.
+  <%= link_to 'Profile', current_applicant %><br>
+  <%= link_to 'View the list of properties and availabilities', properties_path %><br>
+  <!-- view the list, Apply to rent, choose to be placed on waitlist* -->
+  <%= link_to 'Apply to rent a property', new_application_path %><br>
+  <!-- Withdraw application, waitlist length*, remove from waitlist*, move out -->
+  <%= link_to "View my applications", curr_applications_path %><br>
+  <%= link_to "Logout", logout_path %><br>
+
+<% elsif current_admin %>
+  Logged in as <%= current_admin.name %>.
+  <%= link_to 'Profile', current_admin %><br>
+  <%= link_to 'Edit my profile', admins_path %><br>
+  <br><br>
+  Administration:
+  <br>
+  <%= link_to 'View all applicants', applicants_path %><br>
+  <%= link_to 'View all applications', applications_path %><br>
+  <%= link_to 'View all leasing agents', agents_path %><br>
+  <%= link_to 'View all properties', properties_path %><br>
+  <br>
+  <br>
+  Other Function:
+  <br>
+  <br>
+  Tenant:
+  <br>
+  <%= link_to 'Check a tenant in to a property', applicants_path %><br>
+  <%= link_to 'Reject a tenant’s application to a property', applications_path %><br>
+  <%= link_to 'Check a tenant out from a property', applicants_path %><br>
+  <br>
+  Application:<br>
+  <%= link_to 'Apply to rent a property', properties_path %><br>
+  <%= link_to "View my applications", applications_path %><br>
+  <br>
+  <br>
+  <%= link_to "Logout", logout_path %><br>
+
+
+<% else %>
+  <%= link_to "Login", login_path %>
+  <br>
+  <%#= link_to "Agent Signup", signup_path %>
+<!--  or-->
+  <%= link_to "Applicant Signup", app_signup_path %>
+<!--  or-->
+  <%#= link_to "Admin Signup", admin_signup_path %>
+
+<% end %>

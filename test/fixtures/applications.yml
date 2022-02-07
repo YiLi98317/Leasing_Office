@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  applicant: 1
+  datetime: 2021-09-11
+  property: 1
+  status: 1
+
+two:
+  applicant: 1
+  datetime: 2021-09-11
+  property: 1
+  status: 1
